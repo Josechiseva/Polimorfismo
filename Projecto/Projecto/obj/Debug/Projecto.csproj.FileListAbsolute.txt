@@ -1,0 +1,7 @@
+C:\Users\pc\Documents\TLP\MAteria\Projecto\Projecto\Projecto\bin\Debug\Projecto.exe.config
+C:\Users\pc\Documents\TLP\MAteria\Projecto\Projecto\Projecto\bin\Debug\Projecto.exe
+C:\Users\pc\Documents\TLP\MAteria\Projecto\Projecto\Projecto\bin\Debug\Projecto.pdb
+C:\Users\pc\Documents\TLP\MAteria\Projecto\Projecto\Projecto\obj\Debug\Projecto.csproj.AssemblyReference.cache
+C:\Users\pc\Documents\TLP\MAteria\Projecto\Projecto\Projecto\obj\Debug\Projecto.csproj.CoreCompileInputs.cache
+C:\Users\pc\Documents\TLP\MAteria\Projecto\Projecto\Projecto\obj\Debug\Projecto.exe
+C:\Users\pc\Documents\TLP\MAteria\Projecto\Projecto\Projecto\obj\Debug\Projecto.pdb
