@@ -8,7 +8,7 @@
     {
         public class corpoCeleste
         {
-                           // Modificador protected permite acesso pelas subclasses
+                            // Modificador protected permite acesso pelas subclasses
                            protected string n;
                            protected double m;
                            protected double r;
@@ -23,7 +23,7 @@
                             }
                             public virtual void exibir_informações()
                             {
-                                Console.WriteLine($"   -Corpo Celeste: {n}");
+                                Console.WriteLine($"    -Corpo Celeste: {n}");
                                 Console.WriteLine($"   - Massa: {m} kg");
                                 Console.WriteLine($"   - Raio: {r} m");
                             }
@@ -32,15 +32,15 @@
                             {
                                 return m;
                             }
-                            // Método para obter o nome
-                            public string getnome() 
-                            {
-                                return n;
-                            }
+                        public string getnome() 
+                        {
+                            return n;
+                        }
+
         }
         public class planeta : corpoCeleste
         {
-            //Construtor Padrão
+            //Instancia da class
             public planeta() { }
             public override void SetDados(string nome, double massa, double raio)
             {
@@ -50,7 +50,7 @@
             public double GetGravidade()
             {
                 double G = 6.674e-11;
-                return (G * m) / (Math.Pow(r, 2) / 1000);
+                return (G * m) / (r * r);
             }
             public override void exibir_informações()
             {
@@ -62,7 +62,7 @@
         }
         public class asteroide : corpoCeleste
         {
-            //Construtor padrão
+            //instancia da class
             public asteroide() { }
             private double semiEixoMaior;
             private double excentricidade;
@@ -79,7 +79,7 @@
                 if (orbitaEmTornoDe == null)
                 {
                 //o "null" indica o vazio. Significa que se aquela variavel receber nada ele imprimira o texto a baixo
-                //O comando throw em C# é usado para lançar exceções. Isso significa que o programa para a execução normal e sinaliza que ocorreu um erro.
+                //O comando throw em C# é usado para lançar exceções. Isso significa que o programa interrompe sua execução normal e sinaliza que ocorreu um erro.
                 throw new InvalidOperationException("O asteroide não está orbitando nenhum planeta!");
                 }
 
@@ -108,54 +108,31 @@
             {
                 this.orbitaEmTornoDe = Planeta;
             }
-         
-     }
+    }
         internal class Program
         {
             static void Main(string[] args)
             {
-                Console.WriteLine("Qual é o nome do planeta?");
-                string np = Console.ReadLine();
-
-                Console.WriteLine("Qual a massa do planeta?[kg]");
-                double mp = Convert.ToDouble(Console.ReadLine());
-
-                Console.WriteLine("Qual o raio do planeta?[m]");
-                double rp = Convert.ToDouble(Console.ReadLine()) * 1000;
-
                 //Instancia da classe planeta
                 planeta planeta = new planeta();
                 //Temos que colocar o nome da terra, massa e raio. O "e" representa uma notação cientifica"10^numero depois do e"
-                planeta.SetDados(np, mp, rp);
+                planeta.SetDados("Terra", 5.972e24, 6.371e6);
                 //Exibir as informações:
                 Console.WriteLine("Informações do planeta:");
                 planeta.exibir_informações();
 
-                Console.WriteLine("Qual é o nome do asteroide");
-                string na = Console.ReadLine(); 
-
-                Console.WriteLine("Qual é a massa da estrela[kg]?");
-                double ma = Convert.ToDouble(Console.ReadLine());
-
-                Console.WriteLine("Qual é o raio do asteroide?");
-                double ra = Convert.ToDouble(Console.ReadLine());
-
-                Console.WriteLine("Digite o semi-eixo maior do asteroide.");
-                double sem = Convert.ToDouble(Console.ReadLine());
-
-                Console.WriteLine("Digite a excentricidade do asteroide.");
-                double exc = Convert.ToDouble(Console.ReadLine());
-
                 //Criar instabcia da classe asteroide
                 asteroide asteroides = new asteroide();
-                asteroide ceres = new asteroide(na, ma, ra, sem, exc);
+                asteroide ceres = new asteroide("Ceres", 9.393e20, 469730, 2.77e11, 0.08);
                 //Definir em quanl planeta o asteroide orbita:
                 ceres.SetOrbita(planeta);
-                //Exibindo as informações do asteroide 
-                Console.WriteLine("Informações do asteroide");
-                ceres.exibir_informações();
-                Console.ReadKey();
+            //Exibindo as informações do asteroide 
+            Console.WriteLine("Informações do asteroide");
+            ceres.exibir_informações();
+            Console.ReadKey();
 
             }
+
+
         }
     }
